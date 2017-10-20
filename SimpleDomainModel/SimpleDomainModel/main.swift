@@ -119,9 +119,9 @@ open class Job {
     
     open func calculateIncome(_ hours: Int) -> Int {
         switch self.type {
-        case let .Hourly(type):
-            return Int(type) * hours
-        case let .Salary(type):
+        case .Hourly(let type):
+            return Int(type * Double(hours))
+        case .Salary(let type):
             return type
         }
     }
